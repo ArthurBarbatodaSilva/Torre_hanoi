@@ -1,5 +1,5 @@
 class Torre:
-    def init(self, torre, discos):
+    def __init__(self, torre, discos):
         self._torre = torre
         self._discos = discos
 
