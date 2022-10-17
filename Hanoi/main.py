@@ -16,7 +16,7 @@ def inicio(movimentos):
             break
         string_torres()
         print('Torre A = 1, Torre B = 2 e Torre C = 3')
-        mover_disco(int(input('Digite o disco: ')), str(input('Digite a Torre de origem: ')), str(input('Digite a Torre para destino: ')))
+        mover_disco(str(input('Digite a Torre de origem: ')), str(input('Digite a Torre para destino: ')))
 def string_torres():
     print('')
     # Torre A
@@ -26,15 +26,14 @@ def string_torres():
     # Torre C
     torres[2].to_string()
 
-def mover_disco(disco, origemTorre, destinoTorre):
+def mover_disco(origemTorre, destinoTorre):
     origemTorre = torres[int(origemTorre) - 1]
     destinoTorre = torres[int(destinoTorre) - 1]
 
-    if origemTorre.ultimo_disco() == int(disco):
-        origemTorre.tirar_disco()
-        destinoTorre.colocar_disco(disco)
-    else:
-        print('Você nao pode acessar o disco, tem um disco menor em cima dele')
+    if destinoTorre.colocar_disco(origemTorre.ultimo_disco()) == False:
+        inicio(movimentos)
+    origemTorre.tirar_disco()
+
 
 if __name__ == '__main__':
     print('\nBem vindo a Torre de Hanoi!')

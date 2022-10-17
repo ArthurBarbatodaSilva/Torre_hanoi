@@ -10,7 +10,7 @@ class Torre:
             if int(self.ultimo_disco()) > disco:
                 self._discos.append(disco)
             else:
-                print('Não é possivel inserir esse disco, o disco abaixo é menor')
+                return False
 
     def tirar_disco(self):
         return self._discos.pop()
